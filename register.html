@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    
+    <style>
+        label{
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+    <fieldset id="fieldset">
+        <legend>Registration</legend>
+          <label for="customerid">Customer ID</label>
+          <input type="text" id="customerid" required placeholder="Customer ID"/><br/>
+
+          <label for="firstname">Firstname</label>
+          <input type="text" id="firstname" required placeholder="Firstname"/><br/>
+
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" required placeholder="Surname"/><br/>
+
+          <label for="gender">Gender</label>
+          <select id="gender" onchange="alert(this.value)"> 
+          <!-- <option>Select...</option>
+               <option>Female</option>
+               <option>Male</option>
+          -->
+            <option value="0">Select...</option>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select><br/>
+
+          <label for="dob">DOB</label>
+          <input type="date" id="dob" required/><br/>
+
+        <label>Marital Status:</label><br/>
+          <input type="radio" id="single" name="status" value="S"/>
+          <label for="single">Single</label><br/>       
+          <input type="radio" id="married" name="status" value="M"/>
+          <label for="married">Married</label><br/>       
+          <input type="radio" id="divorced" name="status" value="D"/>
+          <label for="divorced">Divorced</label><br/>      
+          <input type="radio" id="widowed" name="status" value="W"/>
+          <label for="widowed">Widowed</label><br/>
+
+          <label for="cellno">Cell number</label>
+          <input type="tel" id="cellno" required placeholder="xx xxx xxx"/><br/>
+          
+          <label for="email">Email</label>
+          <input type="text" id="email" required placeholder="Email"/><br/>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" required placeholder="P4ssw0rd"/><br/>
+
+          <label for="country">Country</label>
+           <select id="country">
+             <!--Use JavaScript to add the values-->
+           </select><br/>
+
+          <label for="dateregistered">Date Registered</label>
+          <input type="date" id="dateregistered" required/><br/>
+
+        <label>Modules: </label>
+          <input type="checkbox" id="cms" name="module"/>
+          <label for="cms">CMS</label>
+          <input type="checkbox" id="wmd" name="module"/>
+          <label for="wmd">WMD</label>
+          <input type="checkbox" id="c#" name="module"/>
+          <label for="c#">C#</label>
+          
+        
+    </fieldset>
+</body>
+<script type='module'>
+  import data from './countries data.json' with {type:'json'};
+  console.log(data)
+  var cbo=document.getElementId("country");
+  //other option
+  // var cbo=document.querySelector("#country");//
+  
+  //adding data//
+  for (var k = 0; k < data.lenght; k++){
+    var item = data[k];
+    var option = document.createOption();
+    option.value = item.code;
+    option.textContent = item.countryname;
+    cbo.appendChild(option);
+  }
+</script>
+</html>
