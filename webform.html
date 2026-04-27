@@ -31,7 +31,7 @@
                             const data = lines.map(row => row.split(','));
                             console.log(data);
                             return data;
-                        });  
+                        };  
  
                 } else if(url.endsWith('.json')){
  
@@ -43,7 +43,7 @@
                             const normalizedArray = [headers, ...rows];           //3. Normalise - Combine headers and rows
                             console.log(normalizedArray);
                             return normalizedArray;
-                        });  
+                        };  
                 }
 
       //function : to load a dropdown
@@ -61,7 +61,7 @@
 
                     cbo.add(new Option(row[1], row[5]));
 
-                });
+                };
 
   </script>
 </html>
